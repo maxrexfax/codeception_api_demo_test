@@ -1,0 +1,10 @@
+/vendor
+/.idea
+/.vscode
+/nbproject/private/
+/.history
+/tests/_output/
+/logs
+/config
+/.env
+.project

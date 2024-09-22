@@ -1,0 +1,21 @@
+{
+    "require-dev": {
+        "codeception/codeception": "^5.1",
+        "codeception/module-phpbrowser": "*",
+        "codeception/module-asserts": "*",
+        "codeception/module-rest": "^3.3.2",
+        "ext-json": "*"
+    },
+    "autoload-dev": {
+    "psr-0": {
+        "": "src/"
+    },
+    "psr-4": {
+        "Tests\\": "tests/",
+        "CustomCore\\": "src/CustomCore/"
+    }
+},
+    "require": {
+        "vlucas/phpdotenv": "^5.5"
+    }
+}

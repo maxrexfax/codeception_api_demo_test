@@ -1,0 +1,22 @@
+actor: ApiTester
+suite_namespace: Tests\Api
+modules:
+    # enable helpers as array
+    enabled: 
+         - Tests\Support\Helper\Api
+         - REST:
+             url: http://api.maxbarannyk.ru/
+             depends: PhpBrowser
+         - Asserts:
+    config:
+        REST:
+            depends: PhpBrowser
+            timeout: 60
+        PhpBrowser:
+            url: ''
+            curl:
+                CURLOPT_TIMEOUT: 60
+step_decorators:
+    - \Codeception\Step\AsJson
+extensions:
+    enabled:
