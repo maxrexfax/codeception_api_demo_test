@@ -13,10 +13,5 @@ use Tests\Support\ApiTester;
 
 class Api extends \Codeception\Module
 {
-    public function getApiHost()
-    {
-        return Configuration::config()['api_url'];
-    }
-
-    public function writeMessageInsideResultHtml(string $message) {}
+    
 }

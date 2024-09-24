@@ -5,7 +5,6 @@ namespace CustomCore;
 use Codeception\Exception\CofigurationException;
 use Codeception\Scenario;
 use Tests\Support\ApiTester;
-use Tests\Support\Helper\Api;
 
 class BaseApi
 {

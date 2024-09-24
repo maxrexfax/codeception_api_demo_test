@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Tests\Support;
 
+use Codeception\Configuration;
+use Codeception\Exception\ConfigurationException;
+
 /**
  * Inherited Methods
  * @method void wantTo($text)
@@ -52,4 +55,11 @@ class ApiTester extends \Codeception\Actor
     public function formatPrintLn(array $format=[], string $text='') {
         $this->formatPrint($format, $text . PHP_EOL);
     }
+
+    public function getApiHost()
+    {
+        return Configuration::config()['api_url'];
+    }
+
+    public function writeMessageInsideResultHtml(string $message) {}
 }
