@@ -6,8 +6,7 @@ namespace Tests\Api;
 use Tests\Support\ApiTester;
 use CustomCore\BaseApi;
 
-
-class FirstApiTestCest extends BaseApi
+class DemoUsersApiCest extends BaseApi
 {
     public function _before(ApiTester $I, \Codeception\Scenario $scenario)
     {
@@ -18,8 +17,8 @@ class FirstApiTestCest extends BaseApi
     // tests
     public function testGetListOfDemoUsers(ApiTester $I, \Codeception\Scenario $scenario)
     {
-        // $msg = 'Test route "Get List Of Demo Users"';
-        // $this->writeStart($msg);
+        $msg = 'Test route "Get List Of Demo Users"';
+        $this->writeStart($msg);
         $I->writeMessageInsideResultHtml('Start test for demo users api route');
         $url = $I->getApiHost() . 'demo-users';
         $data = [];
@@ -44,6 +43,6 @@ class FirstApiTestCest extends BaseApi
         ];
         
         $this->checkResultLight($I, $structure);
-        // $this->writeFinish($msg, $I);
+        $this->writeFinish($msg, $I);
     }
 }

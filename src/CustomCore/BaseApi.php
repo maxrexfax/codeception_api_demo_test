@@ -9,6 +9,8 @@ use Tests\Support\Helper\Api;
 
 class BaseApi
 {
+    protected ApiTester $I;
+
     protected array $miniStructure = [
         'result' => [
             'status' => 'integer'
@@ -20,7 +22,7 @@ class BaseApi
 
     public function _before(ApiTester $I, \Codeception\Scenario $scenario)
     {
-        
+        $this->I = $I;
     }
 
     /**
@@ -104,5 +106,27 @@ class BaseApi
         $I->seeResponseCodeIs($status);
         $I->seeResponseIsJson();
         $I->seeResponseMatchesJsonType($structure);
+    }
+
+    protected function writeStart($msg)
+    {
+        $this->writeData(sprintf('Start %s at: %s', $msg, date('Y-m-d H:i:s')), 'blue');
+    }
+
+    protected function writeFinish($msg)
+    {
+        $this->writeData(sprintf('Test: %s ENDED at: %s', $msg, date('Y-m-d H:i:s')), 'green');
+    }
+
+    /**
+     * Write message to console and alternative log file
+     * @param $message
+     * @param $color
+     * @param $filePrefix
+     * @return void
+     */
+    protected function writeData($message, $color)
+    {
+        $this->I->formatPrintLn([$color, 'bold'], $message);
     }
 }
