@@ -45,6 +45,8 @@ class BaseApi
      */
     protected function sendPut(ApiTester $I, $path, $data = [], $secured = true)
     {
+        $this->setHeaders($I);
+        $I->haveHttpHeader('accept', 'application/x-www-form-urlencoded');
         $response = $I->sendPut($path, json_encode($data));
         return json_decode($response, true);
     }
@@ -76,6 +78,7 @@ class BaseApi
     {
         $this->setHeaders($I);
         $response = $I->sendPost($path, json_encode($data));
+        // var_dump('BaseApi  LINE:' . __LINE__ . '  json_encode($data):' . json_encode($data) . '   response:' . $response );
         return json_decode($response, true);
     }
 
@@ -88,6 +91,7 @@ class BaseApi
      */
     protected function sendDel(ApiTester $I, $path, $secured = true)
     {
+        $this->setHeaders($I);
         $response = $I->sendDelete($path);
         return json_decode($response, true);
     }    
