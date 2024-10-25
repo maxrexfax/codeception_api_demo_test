@@ -26,26 +26,26 @@ class DemoUsersApiCest extends BaseApi
         $this->scenario = $scenario;
     }
 
-    // tests
-    // public function testGetListOfDemoUsers(ApiTester $I, \Codeception\Scenario $scenario)
-    // {
-    //     $msg = 'Test route "Get List Of Demo Users"';
-    //     $this->writeStart($msg);
-    //     $I->writeMessageInsideResultHtml('Start test for demo users api route');
-    //     $url = $I->getApiHost() . 'demo-users';
-    //     $data = [];
-    //     $result = $this->sendGet($I, $url);
-    //     $structure = $this->miniStructure;        
-    //     $structure['data'] = [ 
-    //         $this->userFields 
-    //     ];      
-    //     $structure['info'] = [
-    //         'total' => 'integer',
-    //     ];
+    tests
+    public function testGetListOfDemoUsers(ApiTester $I, \Codeception\Scenario $scenario)
+    {
+        $msg = 'Test route "Get List Of Demo Users"';
+        $this->writeStart($msg);
+        $I->writeMessageInsideResultHtml('Start test for demo users api route');
+        $url = $I->getApiHost() . 'demo-users';
+        $data = [];
+        $result = $this->sendGet($I, $url);
+        $structure = $this->miniStructure;        
+        $structure['data'] = [ 
+            $this->userFields 
+        ];      
+        $structure['info'] = [
+            'total' => 'integer',
+        ];
         
-    //     $this->checkResultLight($I, $structure);
-    //     $this->writeFinish($msg, $I);
-    // }
+        $this->checkResultLight($I, $structure);
+        $this->writeFinish($msg, $I);
+    }
 
     public function testCreateDemoUser(ApiTester $I, \Codeception\Scenario $scenario)
     {
