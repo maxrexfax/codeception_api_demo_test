@@ -26,7 +26,7 @@ class DemoUsersApiCest extends BaseApi
         $this->scenario = $scenario;
     }
 
-    tests
+    // tests
     public function testGetListOfDemoUsers(ApiTester $I, \Codeception\Scenario $scenario)
     {
         $msg = 'Test route "Get List Of Demo Users"';
